@@ -1,0 +1,85 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class bouns extends JFrame {
+	
+	private JCheckBox c1;
+	private JCheckBox c2;
+	private JCheckBox c3;
+	private JButton b1;
+	private JButton b2;
+
+	
+	public bouns() {
+		setTitle("orders");
+		setSize(300,200);
+		setLayout(new FlowLayout ());
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		create();
+		setVisible(true);
+	}
+	public void create() {
+		JLabel l1 = new JLabel("burger");
+		JLabel l2 = new JLabel("pepsi");
+		JLabel l3 = new JLabel("pizza");
+		 c1 = new JCheckBox("10$");
+		 c2 = new JCheckBox("3$");
+		 c3 = new JCheckBox("15$");
+		 b1 = new JButton("submit");
+		 b2 = new JButton("cancel");
+		add(l1);
+		add(c1);
+		add(l2);
+		add(c2);
+		add(l3);
+		add(c3);
+		add(b1);
+		add(b2);
+		c1.addActionListener(new li());
+		c2.addActionListener(new li());
+		c3.addActionListener(new li());
+		b1.addActionListener(new li());
+		b2.addActionListener(new li());
+
+
+		
+
+	}
+	private class li implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			int x =0;
+			int z = 0;
+			int y=0 ;
+			int c ;
+			if (c1.isSelected()) {
+				x=10;
+			}
+			if (c2.isSelected()) {
+				z=3;
+		} 
+			if (c3.isSelected()) {
+				y=15;
+			}
+			if(e.getSource()== b1) {
+				
+				c = x+y+z;
+				JOptionPane.showMessageDialog(null,"the cost = "+ c+"$");
+			}
+			if (e.getSource()== b2) {
+				c1.setSelected(false);
+				c2.setSelected(false);
+				c3.setSelected(false);
+
+			}
+		
+	}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new bouns();
+	}
+
+}
